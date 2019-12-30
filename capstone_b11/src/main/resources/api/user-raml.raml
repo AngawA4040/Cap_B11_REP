@@ -1,0 +1,62 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/ca3bf821-81d3-49e3-ac44-e65a4a86088b/ # 
+version: 1.2
+title: user RAML
+/users:
+  get:
+    description: Retrive a List of Users
+    responses:
+      200:
+        body:
+          application/json:
+           example: !include Get_All_Users.json                    
+      400:
+        body: 
+          application/json:
+            example: {"message": " bad request" }            
+  post:
+    description: Add User
+    responses: 
+      201:
+        body:
+          application/json:
+                example: !include Post_User.json 
+      400:
+        body:
+          application/json:
+            examples:
+              message:
+                     example: "bad request"
+  /{id}:
+   get:
+    description: get user by id
+    responses:
+      202:
+        body:
+          application/json:
+               example: !include Get_All_Users.json
+   put:
+      description: "update user by id"
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include Put_user.json         
+   delete:
+     description: delete user
+     responses:
+      200:
+        body:
+          application/json:
+            example: {"messgae": "user delete" }
+              
+          
+        
+
+   
+            
+
+
+            
+        
+      
